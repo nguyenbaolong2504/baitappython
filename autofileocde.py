@@ -1,21 +1,29 @@
 from git import Repo
-import os
 from datetime import datetime
+import os
 
-# Đường dẫn tới folder project
-repo_path = r"D:\python\Baitap_NopThay\auto-code-python"
+repo_path = r"D:\python"
 
 repo = Repo(repo_path)
 
-# Add tất cả file
 repo.git.add(all=True)
 
-# Commit với thời gian
-commit_message = "Auto commit: " + datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-repo.index.commit(commit_message)
+# commit
+if repo.head.is_valid():
+    repo.index.commit("Auto commit " + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+else:
+    repo.index.commit("First commit")
 
-# Push lên GitHub
-origin = repo.remote(name='origin')
-origin.push()
+# remote
+try:
+    origin = repo.remote(name='origin')
+except:
+    origin = repo.create_remote('origin', 'https://github.com/nguyenbaolong2504/baitappython.git')
 
-print("✅ Đã push code lên GitHub!")
+# push
+try:
+    origin.push()
+except:
+    repo.git.push("--set-upstream", "origin", "main")
+
+print("✅ Đã push thành công!")
