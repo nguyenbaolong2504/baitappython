@@ -1,0 +1,20 @@
+a=16
+b=3
+c=5
+print (a+b+c)
+print(a-b-c)
+print (a*b*c)
+print (a/b)
+print(b/a)
+print(a/c)
+print (a**b)
+print(b**c)
+print(a**c)
+print (a== b) 
+print (a>b)
+print (a<b)
+print (a>=b)
+print (a<=b)    
+print (a!=b)
+print(a==c)
+print (a>>2)
