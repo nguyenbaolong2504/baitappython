@@ -1,0 +1,6 @@
+ten: long
+tuoi: 20
+email: nguenbaolong@gmail.com
+skype: depzai
+dia_chi: Thai Binh
+noi_lam_viec: Nam Tu  Liem
